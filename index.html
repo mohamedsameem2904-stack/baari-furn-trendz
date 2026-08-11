@@ -70,13 +70,13 @@
     font-size:14px;
     letter-spacing:.03em;
     border-radius:2px;
-    transition:transform .45s var(--ease), background .3s ease, color .3s ease, border-color .3s ease;
+    transition:transform .45s var(--ease), background .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
   }
   .btn-primary{
     background:linear-gradient(135deg, var(--gold-light), var(--gold));
     color:var(--ink);
   }
-  .btn-primary:hover{ transform:translateY(-3px); }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow: 0 6px 20px rgba(227, 197, 131, 0.3); }
   .btn-outline{
     border:1px solid var(--line-dark);
     color:var(--cream);
@@ -129,17 +129,20 @@
   }
   .nav-call:hover{ border-color:var(--gold-light); color:var(--gold-light); }
   
-  /* Upgraded Hamburger Button */
+  /* Fixed & Upgraded Hamburger Button */
   .menu-btn{ 
     display:none; 
     align-items:center; 
     justify-content:center; 
-    width:44px; 
-    height:44px; 
-    padding:8px;
-    margin-right:-8px;
+    width:48px; 
+    height:48px; 
+    border-radius: 50%;
+    background: rgba(227, 197, 131, 0.1);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
   }
-  .menu-btn svg { width:28px; height:28px; stroke:var(--cream); transition:stroke .3s ease; pointer-events:none; }
+  .menu-btn svg { width:24px; height:24px; stroke:var(--cream); stroke-width: 2; transition:stroke .3s ease; pointer-events:none; }
+  .menu-btn:hover, .menu-btn:active { background: rgba(227, 197, 131, 0.2); border-color: var(--line-dark); }
   .menu-btn:hover svg { stroke:var(--gold-light); }
 
   /* ---------- HERO ---------- */
@@ -270,7 +273,7 @@
   .cat-card:hover .cat-ring{ opacity:1; transform:rotate(0deg) scale(1); }
   .cat-body{ position:relative; z-index:2; padding:30px 32px; width:100%; }
   .cat-body .eyebrow{ color:var(--gold-light); margin-bottom:10px; display:block; }
-  .cat-name{ font-size:28px; color:var(--cream); margin-bottom:10px; }
+  .cat-name{ font-size:28px; color:var(--gold-light); margin-bottom:10px; }
   .cat-desc{ font-size:13.5px; color:var(--stone); max-width:320px; margin-bottom:18px; font-weight:300; }
   .cat-link{
     display:inline-flex; align-items:center; gap:8px;
@@ -312,41 +315,70 @@
   .ic-value a{ display:block; transition:color .3s ease; }
   .ic-value a:hover{ color:var(--gold-light); }
 
+  /* Futuristic Inquiry Form */
   .form-card{
-    background:var(--cream); color:var(--charcoal);
-    padding:48px; border:1px solid var(--line-light);
+    background: rgba(29, 26, 21, 0.6); 
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: var(--cream);
+    padding: 48px; 
+    border: 1px solid rgba(227, 197, 131, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.03), inset 0 0 20px rgba(227,197,131,0.05);
   }
-  .form-card h3{ font-family:var(--font-display); font-size:24px; margin-bottom:6px; }
-  .form-card .form-sub{ font-size:13.5px; color:#6b6455; margin-bottom:30px; }
+  .form-card h3{ font-family:var(--font-display); font-size:24px; margin-bottom:6px; color:var(--gold-light); text-shadow: 0 0 12px rgba(227,197,131,0.25); }
+  .form-card .form-sub{ font-size:13.5px; color:var(--stone); margin-bottom:30px; }
   .field{ margin-bottom:22px; }
   .field label{
     display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:.12em;
-    text-transform:uppercase; color:#8a836f; margin-bottom:9px;
+    text-transform:uppercase; color:var(--gold-light); margin-bottom:9px; text-shadow: 0 0 8px rgba(227,197,131,0.2);
   }
   .field input, .field select, .field textarea{
-    width:100%; background:transparent; border:none; border-bottom:1px solid rgba(34,31,26,.28);
-    padding:10px 2px; font-family:var(--font-body); font-size:15.5px; color:var(--charcoal);
-    transition:border-color .3s ease;
+    width:100%; background:rgba(0,0,0,0.3); border:none; border-bottom:1px solid rgba(227,197,131,0.3);
+    padding:12px 14px; font-family:var(--font-body); font-size:15.5px; color:var(--cream);
+    transition:all .3s ease; border-radius: 4px 4px 0 0;
   }
-  .field select{ appearance:none; -webkit-appearance:none; background:transparent; cursor:pointer; }
+  .field select option { background: var(--surface); color: var(--cream); }
+  .field select{ appearance:none; -webkit-appearance:none; cursor:pointer; }
   .field textarea{ resize:vertical; min-height:80px; }
-  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--gold); outline:none; }
+  .field input:focus, .field select:focus, .field textarea:focus{ 
+    border-color:var(--gold-light); outline:none; 
+    background:rgba(227,197,131,0.08);
+    box-shadow: 0 6px 15px -5px rgba(227, 197, 131, 0.4);
+  }
   .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
   .select-wrap{ position:relative; }
   .select-wrap::after{
-    content:'▾'; position:absolute; right:2px; top:8px; font-size:12px; color:#8a836f; pointer-events:none;
+    content:'▾'; position:absolute; right:12px; top:12px; font-size:14px; color:var(--gold-light); pointer-events:none;
   }
-  .form-submit{ width:100%; justify-content:center; margin-top:10px; }
-  .form-note{ font-size:11.5px; color:#8a836f; margin-top:16px; text-align:center; }
+  .form-submit{ 
+    width:100%; justify-content:center; margin-top:10px; padding:16px 30px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-light));
+    background-size: 200% 200%;
+    animation: formGlow 3s ease infinite;
+    color: var(--ink);
+    border: none;
+    font-size: 15px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(227, 197, 131, 0.3);
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(227, 197, 131, 0.5); }
+  @keyframes formGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .form-note{ font-size:11.5px; color:var(--stone-dim); margin-top:16px; text-align:center; }
 
   .form-success{ display:none; text-align:center; padding:40px 10px; }
   .form-success.active{ display:block; }
   .form-success .tick{
-    width:56px; height:56px; border-radius:50%; border:1px solid var(--gold);
+    width:56px; height:56px; border-radius:50%; border:1px solid var(--gold-light);
     display:flex; align-items:center; justify-content:center; margin:0 auto 22px;
+    box-shadow: 0 0 20px rgba(227,197,131,0.2);
   }
-  .form-success h3{ font-family:var(--font-display); font-size:22px; margin-bottom:10px; }
-  .form-success p{ font-size:14px; color:#6b6455; max-width:320px; margin:0 auto; }
+  .form-success h3{ font-family:var(--font-display); font-size:22px; margin-bottom:10px; color:var(--gold-light); }
+  .form-success p{ font-size:14px; color:var(--stone); max-width:320px; margin:0 auto; }
 
   /* ---------- FOOTER ---------- */
   footer{ background:var(--ink); padding-top:90px; border-top:1px solid var(--line-dark); }
@@ -378,22 +410,25 @@
 
   /* mobile nav panel */
   .mobile-panel{
-    position:fixed; inset:0; background:var(--ink); z-index:99;
+    position:fixed; inset:0; background:rgba(20,18,15,0.98); z-index:100;
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px;
-    transform:translateY(-100%); transition:transform .5s var(--ease);
+    transform:translateX(100%); transition:transform .5s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .mobile-panel.open{ transform:translateY(0); }
+  .mobile-panel.open{ transform:translateX(0); }
   .mobile-panel a{ font-family:var(--font-display); font-size:30px; color:var(--cream); }
   .mobile-panel .btn{ margin-top:10px; }
   
   /* Upgraded Mobile Close Button */
   .mobile-close{ 
     position:absolute; top:26px; right:32px; 
-    width:44px; height:44px; 
+    width:48px; height:48px; 
     display:flex; align-items:center; justify-content:center;
-    background:none; border:none; cursor:pointer;
+    background:rgba(255,255,255,0.05); border-radius:50%; border:none; cursor:pointer;
+    transition: background 0.3s ease;
   }
-  .mobile-close svg { width:32px; height:32px; stroke:var(--cream); transition:stroke .3s ease; pointer-events:none; }
+  .mobile-close:hover { background:rgba(227, 197, 131, 0.15); }
+  .mobile-close svg { width:24px; height:24px; stroke:var(--cream); stroke-width:2; transition:stroke .3s ease; pointer-events:none; }
   .mobile-close:hover svg { stroke:var(--gold-light); }
 
   /* ---------- NEW: ANIMATIC WELCOME SCREEN ---------- */
@@ -445,7 +480,7 @@
   .modal-content {
     background: var(--surface); width: 100%; max-width: 1100px; max-height: 85vh;
     overflow-y: auto; padding: 40px; position: relative; border: 1px solid var(--line-dark);
-    border-radius: 4px;
+    border-radius: 8px;
   }
   
   .modal-close-main {
@@ -460,9 +495,10 @@
   .prod-card { 
     background: var(--surface-2); border: 1px solid var(--line-dark); padding: 15px; 
     display:flex; flex-direction:column; justify-content:space-between;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 4px;
   }
-  .prod-card:hover { transform: translateY(-4px); border-color: var(--gold-light); }
+  .prod-card:hover { transform: translateY(-4px); border-color: var(--gold-light); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
   .prod-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; margin-bottom: 15px; border-radius: 2px; }
   .prod-card h4 { color: var(--cream); font-family: var(--font-display); font-size: 20px; margin-bottom: 15px; }
 
@@ -470,7 +506,7 @@
   .detail-grid {
     display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; margin-top: 20px;
   }
-  .detail-img-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; border: 1px solid var(--line-dark); }
+  .detail-img-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; border: 1px solid var(--line-dark); }
   .detail-info { display: flex; flex-direction: column; justify-content: center; }
   .detail-info h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 36px); color: var(--cream); line-height: 1.1; margin-bottom: 16px; }
   .detail-info p { color: var(--stone); font-size: 16px; font-weight: 300; line-height: 1.6; margin-bottom: 30px; }
@@ -539,7 +575,7 @@
       </a>
       <!-- Upgraded Hamburger Menu Button -->
       <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
@@ -551,7 +587,7 @@
 <div class="mobile-panel" id="mobilePanel">
   <!-- Upgraded Mobile Close Button -->
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path d="M18 6L6 18M6 6l12 12"/>
     </svg>
   </button>
@@ -712,6 +748,7 @@
       </div>
     </div>
 
+    <!-- Futuristic Inquiry Form -->
     <div class="form-card reveal">
       <div id="formStateDefault">
         <h3>WhatsApp Inquiry Form</h3>
@@ -741,17 +778,17 @@
             </div>
           </div>
           <div class="field">
-            <label for="fMessage">Message / Customisation Requirement</label>
+            <label for="fMessage">Message / Customisation</label>
             <textarea id="fMessage" name="message" placeholder="Tell us about size, finish, budget or anything specific you have in mind"></textarea>
           </div>
-          <button type="submit" class="btn btn-dark form-submit">Send to WhatsApp</button>
+          <button type="submit" class="btn form-submit">Send to WhatsApp</button>
           <p class="form-note">Your inquiry will be sent directly to our official WhatsApp.</p>
         </form>
       </div>
 
       <div class="form-success" id="formSuccess">
-        <div class="tick"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8894F" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <h3>Redirecting to WhatsApp</h3>
+        <div class="tick"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E3C583" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Redirecting...</h3>
         <p>Thank you<span id="successName"></span> — we are opening WhatsApp with your message now.</p>
       </div>
     </div>
@@ -873,10 +910,9 @@
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  // ================= PRODUCT DATA (20 ITEMS PER CATEGORY) =================
+  // ================= PRODUCT DATA =================
   const generateDesc = (name, cat) => `The ${name} is a meticulously crafted piece from our exclusive ${cat} collection. Designed to perfectly balance form and function, it features premium finishes, superior structural integrity, and timeless aesthetic appeal that effortlessly elevates your interior space.`;
   
-  // Base images to rotate through to ensure varied, high-quality thumbnails
   const sImgs = ["1550254478-ead40cc54513", "1605774337664-7a846e9cdf17", "1540574163026-643ea20d25b5", "1493663284031-b7e3aefcae8e", "1499933374294-458f401500af"];
   const cImgs = ["1505693416388-ac5ce068fe85", "1554995207-c18c203602cb", "1583847268964-b28ce8f30f9c", "1616594039964-ae9021a400a0", "1522771739844-6a9f6d5f14af"];
   const dImgs = ["1577140917170-285929fb55b7", "1617806118233-18e1c1704db4", "1581428982868-e410dd98fc3a", "1604578762246-41134e37f9cc", "1615873968403-89e068629265"];
@@ -981,9 +1017,24 @@
   });
 
   const hideModal = () => { productModal.classList.remove('active'); };
-  closeModal.addEventListener('click', hideModal);
+  
+  // Adjusted Close Button Logic
+  closeModal.addEventListener('click', () => {
+    if (detailView.style.display === 'block') {
+      // Go back to gallery if in detail view
+      detailView.style.display = 'none';
+      galleryView.style.display = 'block';
+    } else {
+      // Close the modal entirely if in gallery view
+      hideModal();
+    }
+  });
+  
   productModal.addEventListener('click', (e) => {
-    if(e.target === productModal) hideModal();
+    if(e.target === productModal) {
+      // Clicking outside the modal always closes the whole thing
+      hideModal();
+    }
   });
 
   // ================= FORM SUBMISSION =================
